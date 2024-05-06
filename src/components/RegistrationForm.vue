@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from 'Vue'
+import { ref } from 'vue'
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
 import Swal from 'sweetalert2';
