@@ -51,10 +51,10 @@ function onSubmit(values) {
     confirmPassword: values.confirmPassword,
   }
   Swal.fire({
-    title: '提交成功!',
+    title: '註冊成功!',
     text: formatDetails(details),
     icon: 'success',
-    confirmButtonText: '了解'
+    confirmButtonText: 'OK!'
   });
 }
 
