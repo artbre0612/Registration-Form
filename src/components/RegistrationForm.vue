@@ -114,17 +114,21 @@ function toggleConfirmVisibility(e) {
 
         <div class="user-input-box">
           <label for="password">密碼</label>
-          <Field type="password" name="password" id="password" placeholder="密碼須包含大小寫英文及數字"/>
-          <span v-if="passwordIsVisible" class="material-symbols-outlined " @click="toggleVisibility">visibility</span>
-          <span v-else class="material-symbols-outlined" @click="toggleVisibility">visibility_off</span>
+          <div class="input-field">
+            <Field type="password" name="password" id="password" placeholder="密碼須包含大小寫英文及數字"/>
+            <span v-if="passwordIsVisible" class="material-symbols-outlined " @click="toggleVisibility">visibility</span>
+            <span v-else class="material-symbols-outlined" @click="toggleVisibility">visibility_off</span>
+          </div>
           <ErrorMessage name="password" class="errorMessage"/>
         </div>
 
         <div class="user-input-box">
           <label for="confirmPassword">確認密碼</label>
-          <Field type="password" name="confirmPassword" id="confirmPassword" placeholder="請再次輸入密碼"/>
-          <span v-if="confirmIsVisible" class="material-symbols-outlined " @click="toggleConfirmVisibility">visibility</span>
-          <span v-else class="material-symbols-outlined" @click="toggleConfirmVisibility">visibility_off</span>
+          <div class="input-field">
+            <Field type="password" name="confirmPassword" id="confirmPassword" placeholder="請再次輸入密碼"/>
+            <span v-if="confirmIsVisible" class="material-symbols-outlined " @click="toggleConfirmVisibility">visibility</span>
+            <span v-else class="material-symbols-outlined" @click="toggleConfirmVisibility">visibility_off</span>
+          </div>
           <ErrorMessage name="confirmPassword" class="errorMessage"/>
         </div>
 
@@ -142,7 +146,7 @@ function toggleConfirmVisibility(e) {
           <Field type="radio" name="pets" id="other" value="other"/>
           <label for="other">其他</label>
         </div>
-        <Field as="textarea" name="otherPets" id="otherPets" rows="4" cols="25" placeholder="你養了甚麼特別的寵物?"></Field>
+        <Field as="textarea" name="otherPets" id="otherPets" rows="4" placeholder="你養了甚麼特別的寵物?"></Field>
       </div>
 
       <div class="form-submit-btn">
@@ -185,7 +189,6 @@ function toggleConfirmVisibility(e) {
     flex-wrap: wrap;
     width: 45%;
     padding-bottom: 15px;
-    position: relative;
   }
 
   .user-input-box:nth-child(2n) {
@@ -200,12 +203,18 @@ function toggleConfirmVisibility(e) {
 
   .user-input-box input {
     width: 95%;
+    height: 45px;
     padding: 5px 15px 5px 5px;
     border-radius: 8px;
     border: 0;
     outline: 0;
     background-color: #f2f2f2e6;
     font-size: 0.8rem;
+  }
+
+  .input-field {
+    position: relative;
+    width: 100%;
   }
 
   .user-details {
@@ -227,11 +236,20 @@ function toggleConfirmVisibility(e) {
     font-size: 0.8rem;
   }
 
+  input[type="radio"] {
+    -ms-transform: scale(2); /* IE 9 */
+    -webkit-transform: scale(2); /* Chrome, Safari, Opera */
+    transform: scale(2);
+  }
+
   textarea {
     background-color: #f2f2f2e6;
     outline: 0;
     padding: 5px;
     font-size: 0.8rem;
+    width: 100%; /* 設置寬度為100%，使其佔滿父元素的全部寬度 */
+    height: 100%; /* 設置高度為100%，使其佔滿父元素的全部高度 */
+    resize: none; 
   }
 
   .form-submit-btn{
@@ -273,8 +291,9 @@ function toggleConfirmVisibility(e) {
 
   .material-symbols-outlined {
     position: absolute;
-    top: 45px;
-    right: 20px;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
   }
   
   @media screen and (max-width: 600px) {
