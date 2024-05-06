@@ -9,8 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "sweetalert2": "^11.10.8",
     "vee-validate": "^4.12.7",
-    "vue": "^3.4.21"
+    "vue": "^3.4.21",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
